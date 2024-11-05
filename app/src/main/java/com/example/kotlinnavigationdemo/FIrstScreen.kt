@@ -14,9 +14,10 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun FirstScreen(
-    toSecondScreen: () -> Unit,
-    toThirdScreen: () -> Unit,
-    toFourthScreen: () -> Unit,
+    toBottomHomeScreen: () -> Unit = {},
+    toSecondScreen: () -> Unit = {},
+    toThirdScreen: () -> Unit = {},
+    toFourthScreen: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -24,6 +25,12 @@ fun FirstScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize()
     ) {
+        Button(
+            onClick = toBottomHomeScreen,
+            modifier = modifier.padding(24.dp)
+        ) {
+            Text(text = "To Landing Screen")
+        }
         Text(
             text = "First Screen",
             modifier = modifier.padding(16.dp)
